@@ -13,119 +13,175 @@
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(180deg, #87CEEB 0%, #5DADE2 100%);
+            background: linear-gradient(135deg, #87CEEB 0%, #5DADE2 100%);
             min-height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
-            padding: 40px 20px;
+            padding: 20px;
         }
 
         .card {
             background: #FFFACD;
-            border-radius: 16px;
+            border-radius: 20px;
             padding: 50px 40px;
-            max-width: 550px;
+            max-width: 500px;
             width: 100%;
             text-align: center;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-            border: 3px solid #FFFFFF;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .cloud-icon {
+            font-size: 48px;
+            margin-bottom: 20px;
+            opacity: 0.8;
         }
 
         h1 {
             color: #1A5276;
-            font-size: 1.8rem;
+            font-size: 1.6rem;
             margin-bottom: 12px;
+            line-height: 1.3;
         }
 
-        p {
-            color: #2C3E50;
-            font-size: 1.05rem;
-            margin-bottom: 10px;
-            line-height: 1.5;
+        .subtitle {
+            color: #5D6D7E;
+            font-size: 0.95rem;
+            margin-bottom: 25px;
         }
 
-        .status {
-            color: #27AE60;
-            font-weight: bold;
-            font-size: 1.1rem;
-            margin: 20px 0;
-            display: flex;
-            justify-content: center;
+        .status-badge {
+            display: inline-flex;
             align-items: center;
             gap: 8px;
+            background: #ABEBC6;
+            color: #1E8449;
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 30px;
         }
 
         .status-dot {
-            width: 12px;
-            height: 12px;
+            width: 8px;
+            height: 8px;
             background: #27AE60;
             border-radius: 50%;
-            display: inline-block;
             animation: pulse 2s infinite;
         }
 
         @keyframes pulse {
-            0%, 100% { opacity: 1; transform: scale(1); }
-            50% { opacity: 0.6; transform: scale(1.2); }
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
         }
 
-        hr {
-            border: none;
-            height: 2px;
-            background: #87CEEB;
-            margin: 25px 0;
-            border-radius: 1px;
+        .tech-tags {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
         }
 
-        .info-block {
+        .tag {
             background: #FFFFFF;
-            border-radius: 10px;
-            padding: 20px;
-            margin-top: 10px;
+            color: #5D6D7E;
+            padding: 6px 14px;
+            border-radius: 8px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            border: 1px solid #D5DBDB;
+        }
+
+        .info-section {
+            background: #FFFFFF;
+            border-radius: 12px;
+            padding: 25px;
             text-align: left;
-            border-left: 4px solid #5DADE2;
+            border-left: 3px solid #5DADE2;
         }
 
-        .info-block p {
-            margin-bottom: 8px;
-            font-size: 1rem;
+        .info-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid #F0F3F4;
+            font-size: 0.9rem;
         }
 
-        .info-block p:last-child {
-            margin-bottom: 0;
+        .info-row:last-child {
+            border-bottom: none;
         }
 
-        .info-block strong {
-            color: #1A5276;
+        .info-label {
+            color: #7F8C8D;
+        }
+
+        .info-value {
+            color: #2C3E50;
+            font-weight: 600;
+        }
+
+        .footer {
+            margin-top: 25px;
+            color: #A6ACAF;
+            font-size: 0.8rem;
         }
 
         @media (max-width: 480px) {
             .card {
-                padding: 30px 20px;
+                padding: 35px 25px;
             }
             h1 {
-                font-size: 1.4rem;
+                font-size: 1.3rem;
             }
         }
     </style>
 </head>
 <body>
     <div class="card">
+        <div class="cloud-icon">☁️</div>
         <h1>Cloud-Native Deployment Success!</h1>
-        <p>This site was deployed using <b>GitHub Actions</b>.</p>
+        <p class="subtitle">This site was deployed using <b>GitHub Actions</b>.</p>
         
-        <div class="status">
+        <div class="status-badge">
             <span class="status-dot"></span>
             <span>Site Status: Live</span>
         </div>
 
-        <hr>
+        <div class="tech-tags">
+            <span class="tag">GitHub Actions</span>
+            <span class="tag">Azure</span>
+            <span class="tag">Cloud-Native</span>
+        </div>
 
-        <div class="info-block">
-            <p><strong>Student Name:</strong> Korchi Nouhaila</p>
-            <p><strong>Current Cloud Provider:</strong> GitHub (Microsoft Azure Infrastructure)</p>
+        <div class="info-section">
+            <div class="info-row">
+                <span class="info-label">Student Name</span>
+                <span class="info-value">Korchi Nouhaila</span>
+            </div>
+            <div class="info-row">
+                <span class="info-label">Cloud Provider</span>
+                <span class="info-value">GitHub (Microsoft Azure)</span>
+            </div>
+            <div class="info-row">
+                <span class="info-label">Deployment Method</span>
+                <span class="info-value">CI/CD Pipeline</span>
+            </div>
+            <div class="info-row">
+                <span class="info-label">Last Updated</span>
+                <span class="info-value" id="timestamp">Loading...</span>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>Cloud Computing Lab &copy; 2026</p>
         </div>
     </div>
+
+    <script>
+        document.getElementById('timestamp').textContent = new Date().toLocaleString();
+    </script>
 </body>
 </html>
