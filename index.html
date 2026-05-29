@@ -2,18 +2,204 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Cloud Computing Lab </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cloud Computing Lab | Deployment Status</title>
     <style>
-        body { font-family: sans-serif; text-align: center; padding-top: 50px; }
-        .status { color: green; font-weight: bold; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 50px 40px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            max-width: 600px;
+            width: 100%;
+            text-align: center;
+            animation: slideIn 0.8s ease-out;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .icon {
+            font-size: 64px;
+            margin-bottom: 20px;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        h1 {
+            color: #2d3748;
+            font-size: 2rem;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .subtitle {
+            color: #718096;
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+        }
+
+        .status-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: #c6f6d5;
+            color: #22543d;
+            padding: 12px 24px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1rem;
+            margin-bottom: 30px;
+        }
+
+        .status-dot {
+            width: 12px;
+            height: 12px;
+            background: #48bb78;
+            border-radius: 50%;
+            animation: blink 2s infinite;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        .info-card {
+            background: #f7fafc;
+            border-radius: 12px;
+            padding: 25px;
+            margin-top: 25px;
+            text-align: left;
+            border-left: 4px solid #667eea;
+        }
+
+        .info-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .info-row:last-child {
+            border-bottom: none;
+        }
+
+        .info-label {
+            color: #718096;
+            font-weight: 500;
+        }
+
+        .info-value {
+            color: #2d3748;
+            font-weight: 600;
+        }
+
+        .tech-stack {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 25px;
+            flex-wrap: wrap;
+        }
+
+        .tech-tag {
+            background: #edf2f7;
+            color: #4a5568;
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        .footer {
+            margin-top: 30px;
+            color: #a0aec0;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 30px 20px;
+            }
+            h1 {
+                font-size: 1.5rem;
+            }
+        }
     </style>
 </head>
 <body>
-    <h1>Cloud-Native Deployment Success!</h1>
-    <p>This site was deployed using <b>GitHub Actions</b>.</p>
-    <div class="status">● Site Status: Live</div>
-    <hr>
-    <p>Student Name: Korchi Nouhaila </p>
-    <p>Current Cloud Provider: GitHub (Microsoft Azure Infrastructure)</p>
+    <div class="container">
+        <div class="icon">☁️</div>
+        <h1>Cloud-Native Deployment Success!</h1>
+        <p class="subtitle">This site was deployed using <strong>GitHub Actions</strong></p>
+        
+        <div class="status-badge">
+            <span class="status-dot"></span>
+            <span>Site Status: Live</span>
+        </div>
+
+        <div class="tech-stack">
+            <span class="tech-tag">GitHub Actions</span>
+            <span class="tech-tag">Azure</span>
+            <span class="tech-tag">Cloud-Native</span>
+        </div>
+
+        <div class="info-card">
+            <div class="info-row">
+                <span class="info-label">Student Name</span>
+                <span class="info-value">Korchi Nouhaila</span>
+            </div>
+            <div class="info-row">
+                <span class="info-label">Cloud Provider</span>
+                <span class="info-value">GitHub (Microsoft Azure)</span>
+            </div>
+            <div class="info-row">
+                <span class="info-label">Deployment Method</span>
+                <span class="info-value">CI/CD Pipeline</span>
+            </div>
+            <div class="info-row">
+                <span class="info-label">Last Updated</span>
+                <span class="info-value" id="timestamp">Loading...</span>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>Cloud Computing Lab &copy; 2026</p>
+        </div>
+    </div>
+
+    <script>
+        // Auto-update timestamp
+        document.getElementById('timestamp').textContent = new Date().toLocaleString();
+    </script>
 </body>
 </html>
